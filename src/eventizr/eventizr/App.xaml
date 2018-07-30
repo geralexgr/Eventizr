@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eventizr.App">
+	<Application.Resources>
+
+
+
+        <ResourceDictionary>
+
+            <!--APP COLORS-->
+            <Color x:Key="PageBackgroundColor">#ededed</Color>
+            <Color x:Key="NavigationBarColor">#344354</Color>
+            <Color x:Key="SettingsGridrColor">#ffffff</Color>
+            <Color x:Key="SettingsTextColor">#000000</Color>
+
+            <!--APP COLORS-->
+
+            <!--TEXT COLORS-->
+            <Color x:Key="NavigationBarTextColor">#ffffff</Color>
+            <Color x:Key="AppBlueTextColor">#344354</Color>
+
+            <!--APP COLORS-->
+
+            <!-- CONTROLS -->
+            <Color x:Key="NormalTextColor">Blue</Color>
+            <Style x:Key="LabelPageHeadingStyle" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+
+        </ResourceDictionary>
+	</Application.Resources>
+</Application>

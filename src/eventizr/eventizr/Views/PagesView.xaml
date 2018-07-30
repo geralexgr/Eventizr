@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:eventizr.Controls"
+             x:Class="eventizr.Views.PagesView"
+             x:Name="PagesView">
+
+
+    <Grid  BackgroundColor="{StaticResource PageBackgroundColor}">
+
+
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+
+
+        <controls:NavigationBar Grid.Row="1" />
+
+
+        <Grid Padding="0">
+            <StackLayout Orientation="Vertical">
+                <controls:AdControlView />
+                <ListView RowHeight="100"  Grid.Row="0"  ItemsSource="{Binding Pages}" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Grid Margin="10,10,10,0">
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image 
+                                           WidthRequest="80" Source="{Binding Picture}" Grid.Column="0" HeightRequest="80"/>
+
+                                    <StackLayout Spacing="10" Grid.Column="1" >
+                                        <Label Text="{Binding Name}" LineBreakMode="WordWrap" FontAttributes="Bold" FontSize="Medium" />
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Category:" LineBreakMode="NoWrap" IsVisible="{Binding Visible}" />
+                                            <Label Text="{Binding Category}" LineBreakMode="WordWrap" FontAttributes="Bold" FontSize="Default" />
+                                        </StackLayout>
+                                    </StackLayout>
+
+                                </Grid>
+                        </ViewCell.View>
+
+                            <ViewCell.ContextActions>
+                                <MenuItem Command="{Binding Path=BindingContext.RemovePageCommand, Source={x:Reference Name=PagesView}}"
+                                         CommandParameter="{Binding .}"  Text="Delete" IsDestructive="True" />
+                                
+     
+                            </ViewCell.ContextActions>
+                        
+                        </ViewCell>
+
+
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        </StackLayout>
+        </Grid>
+
+
+    </Grid>
+
+    <ContentPage.ToolbarItems >
+        <ToolbarItem  Icon="add.png" Command="{Binding AddPageCommand}"  Order="Primary" />
+    </ContentPage.ToolbarItems>
+
+</ContentPage>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:eventizr.Controls"
+             xmlns:vm="clr-namespace:eventizr.ViewModels"
+             x:Class="eventizr.Views.SettingsView">
+
+
+
+    <ContentPage.BindingContext>
+        <vm:SettingsViewModel />
+    </ContentPage.BindingContext>
+
+
+
+    <Grid  BackgroundColor="{StaticResource PageBackgroundColor}">
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+
+
+        <StackLayout Spacing="20" Margin="0,20,0,0" Orientation="Vertical" Grid.Row="0">
+
+            <Label  HorizontalOptions="CenterAndExpand" FontSize="Medium" Text="Settings" FontAttributes="Bold" TextColor="{StaticResource AppBlueTextColor}"/>
+            <Grid    BackgroundColor="{StaticResource SettingsGridrColor}" HeightRequest="40">
+                <StackLayout Orientation="Horizontal"  >
+                    <Label Text="Distance:" FontAttributes="Bold" FontSize="Small" TextColor="{StaticResource SettingsTextColor}" VerticalOptions="CenterAndExpand" />
+                    <Picker x:Name="picker" SelectedIndexChanged="PickerItemChanged"  Margin="20,0,0,0"  WidthRequest="90" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" >
+                        <Picker.Items>
+                            <x:String>5Km</x:String>
+                            <x:String>10Km</x:String>
+                            <x:String>25Km</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+        
+        
+        
+        <controls:NavigationBar Grid.Row="1" />
+
+
+    </Grid>
+
+
+    <ContentPage.ToolbarItems >
+        <ToolbarItem  Icon="help.png" Command="{Binding NavigateToInfoCommand}"  Order="Primary" />
+    </ContentPage.ToolbarItems>
+
+</ContentPage>

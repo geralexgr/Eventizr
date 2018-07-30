@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:eventizr.ViewModels"
+             x:Class="eventizr.Views.EventView" >
+
+
+    <Grid  BackgroundColor="{StaticResource PageBackgroundColor}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+
+        <Image Grid.Row="0" Aspect="AspectFill" Source="{Binding Data.Picture}" />
+
+        <ScrollView  Grid.Row="1">
+            <StackLayout Padding="20" Orientation="Vertical" Spacing="10" >
+
+                <Label FontSize="Medium" Text="{Binding Title}"  LineBreakMode="WordWrap" FontAttributes="Bold" TextColor="{StaticResource AppBlueTextColor}"/>
+                
+                <StackLayout Orientation="Vertical">
+                <Label FontSize="Medium" Text="Information" HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="{StaticResource AppBlueTextColor}"/>
+                <Label FontSize="Default" Text="{Binding Data.Description}" HorizontalTextAlignment="Start" />
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical">
+                <Label FontSize="Medium" Text="Date" HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="{StaticResource AppBlueTextColor}"/>
+                <Label FontSize="Default" Text="{Binding Data.Time}" HorizontalTextAlignment="Start" />
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical">
+                <Label FontSize="Medium" Text="Location" HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="{StaticResource AppBlueTextColor}"/>
+                <Label FontSize="Default" Text="{Binding Data.Address}" HorizontalTextAlignment="Start" />
+                <!--map control here-->
+                </StackLayout>
+
+
+            </StackLayout>
+        </ScrollView>
+        
+        
+    </Grid>
+
+
+</ContentPage>

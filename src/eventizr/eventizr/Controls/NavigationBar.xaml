@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eventizr.Controls.NavigationBar">
+  <ContentView.Content>
+
+
+
+        <Grid   BackgroundColor="{StaticResource NavigationBarColor}" >
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Orientation="Vertical" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="End" >
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="NavigateToHome"/>
+                </StackLayout.GestureRecognizers>
+                <Image  Source="Home.png"  WidthRequest="30" HeightRequest="30" />
+                <Label Text="Home" TextColor="{StaticResource NavigationBarTextColor}"  />
+            </StackLayout>
+
+            <StackLayout Orientation="Vertical"  Grid.Column="1"  HorizontalOptions="CenterAndExpand" VerticalOptions="End">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="NavigateToPages"/>
+                </StackLayout.GestureRecognizers>
+                <Image Source="Pages.png" WidthRequest="30" HeightRequest="30"  />
+                <Label Text="Pages" TextColor="{StaticResource NavigationBarTextColor}"  />
+            </StackLayout>
+
+            <StackLayout Orientation="Vertical"  Grid.Column="2"  HorizontalOptions="CenterAndExpand" VerticalOptions="End">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="NavigateToSettings"/>
+                </StackLayout.GestureRecognizers>
+                <Image  Source="Settings.png"  WidthRequest="30" HeightRequest="30" />
+                <Label Text="Settings" TextColor="{StaticResource NavigationBarTextColor}" />
+            </StackLayout>
+        </Grid>
+
+
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:eventizr.ViewModels"
+             xmlns:controls="clr-namespace:eventizr.Controls"
+             x:Class="eventizr.Views.AddPageView">
+    
+    
+    
+    <ContentPage.BindingContext>
+        <vm:AddPageViewModel />
+    </ContentPage.BindingContext>
+
+
+
+    <Grid  BackgroundColor="{StaticResource PageBackgroundColor}">
+
+
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+
+        <StackLayout Orientation="Vertical" Padding="20" Spacing="10" Grid.Row="0">
+            <Label Text="Search for page:" FontAttributes="Bold" FontSize="Small" TextColor="{StaticResource AppBlueTextColor}"  />
+            <Entry Text="{Binding Page}" Placeholder="enter facebook page url" />
+            <Button Text="Search" Command="{Binding SearchPageCommand}"  />
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"  Color="#344354" />
+        </StackLayout>
+
+
+        <Grid Padding="10" Grid.Row="1">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="160" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <Image HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" WidthRequest="140" HeightRequest="140" Source="{Binding Picture}" Grid.Column="0"  />
+
+            <ScrollView Grid.Row="0" Grid.Column="1" >
+            <StackLayout Spacing="10"  >
+                <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="Medium" />
+                <StackLayout Orientation="Vertical" Spacing="5">
+                    <Label Text="Category:" LineBreakMode="NoWrap" IsVisible="{Binding Visible}" />
+                        <Label Text="{Binding Category}" LineBreakMode="WordWrap" FontAttributes="Bold" FontSize="Default" />
+                </StackLayout>
+            </StackLayout>
+            </ScrollView>
+            <Button Grid.Row="1" Grid.ColumnSpan="2" Text="Save page"  Command="{Binding SavePageCommand}" IsVisible="{Binding Visible}" IsEnabled="{Binding Enabled}" />
+        </Grid>
+
+
+    </Grid>
+</ContentPage>
